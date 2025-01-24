@@ -26,29 +26,6 @@ public class AutoGeneration {
 		}
 	}
 	
-	/*public boolean proverka1() {
-	public boolean proverka2() {
-		while (true) {
-			for (int i = 0; i < map.length; i++) {
-				for (int j = 0; j < map[i].length; j++) {
-					if (map[i][j] == 'S' && j+1 < 6 && map[i][j+1] != '#'){
-						map[i][j] = '.';
-						map[i][j+1] = 'S';
-					} else if (map[i][j] == 'S' && map[i][j+1] == '#' && i+1 < 6) {
-						map[i][j] = '.';
-						map[i+1][j] = 'S';
-					} else if ((map[i][j+1] == '#' || j+1 < 6) && (map[i+1][j] == '#'|| i+1 < 6) && j-1 >= 0) {
-						while (map[i+1][j] != '.') {
-							j = j - 1;
-						}
-						map[i+1][j] = 'S';
-						map[i][j] = '.'
-					}
-				}
-			}
-		}
-	}*/
-	
 	public boolean proverka() {
 		
 		char [][] visited = new char [6][6];
