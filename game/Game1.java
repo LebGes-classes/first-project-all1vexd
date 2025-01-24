@@ -4,7 +4,7 @@ public class Game1 {
 	private int coordinateX;
 	private int coordinateY;
 	private int numberOfLevel;
-	private Test test = new Test();
+	private AutoGeneration generation = new AutoGeneration();
 	private char[][] map;
 	
 	
@@ -82,7 +82,7 @@ public class Game1 {
 	
 	public void play() {
 		clearConsole();
-		this.map = test.resault();
+		this.map = generation.resault();
 		Scanner scan = new Scanner(System.in);
 		while (true) {
 			display();

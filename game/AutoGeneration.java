@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Test {
+public class AutoGeneration {
 	
 	private final char[] alphabet = {'#', '*'};
 	private char[][] map = new char [6][6];
