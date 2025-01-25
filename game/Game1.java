@@ -59,6 +59,12 @@ public class Game1 {
 				System.out.println("You choose the wrong way! Use w/a/s/d.");
 				return;
 		}
+		if (currentCoordinateX >= generation.getSizeOfField() || currentCoordinateX < 0 ||
+					currentCoordinateY >= generation.getSizeOfField() || currentCoordinateY < 0) {
+			clearConsole();
+			System.out.println("Oops, there's a wall here! You can't go there!");
+			return;
+		}
 		
 		if (map[currentCoordinateY][currentCoordinateX] == '*') {
 			coordinateX = currentCoordinateX;
@@ -73,6 +79,7 @@ public class Game1 {
 		} else {
 			clearConsole();
 			System.out.println("Oops, there's a wall here! You can't go there!");
+			return;
 		}
 	}
 	

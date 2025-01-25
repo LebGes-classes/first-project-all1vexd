@@ -3,18 +3,23 @@ import java.util.Random;
 public class AutoGeneration {
 	
 	private final char[] alphabet = {'#', '*'};
-	private char[][] map = new char [6][6];
+	private int sizeOfField = 10;
+	private char[][] map = new char [sizeOfField][sizeOfField];
+	
+	public int getSizeOfField() {
+		return sizeOfField;
+	}
 	
 	public void generation(){
 		for (int i = 0; i < map.length; i++) {
 			for (int j = 0; j < map[i].length; j++) {
 				Random random = new Random();
-				int number = random.nextInt(2);
+				int number = random.nextInt(alphabet.length);
 				map[i][j] = alphabet[number];
 			}
 		}
 		map[0][0] = 'S';
-		map[5][5] = 'F';
+		map[sizeOfField - 1][sizeOfField - 1] = 'F';
 	}
 	
 	public void output() {
@@ -26,10 +31,10 @@ public class AutoGeneration {
 		}
 	}
 	
-	public boolean proverka() {
+	public boolean check() {
 		
-		char [][] visited = new char [6][6];
-		char [][] map1 = new char [6][6];
+		char [][] visited = new char [sizeOfField][sizeOfField];
+		char [][] map1 = new char [sizeOfField][sizeOfField];
 		for (int i = 0; i < map1.length; i++) {
 			for (int j = 0; j < map1[i].length; j++) {
 				map1[i][j] = map[i][j];
@@ -38,14 +43,14 @@ public class AutoGeneration {
 		
 		for (int i = 0; i < map1.length; i++) {
 			for (int j = 0; j < map1[i].length; j++) {
-				if (map1[5][5] == 'S') {
+				if (map1[sizeOfField - 1][sizeOfField - 1] == 'S') {
 					return true;
 				}
-				else if (map1[i][j] == 'S' && j+1 < 6 && map1[i][j+1] != '#' && visited[i][j+1] != '*') {
+				else if (map1[i][j] == 'S' && j+1 < sizeOfField && map1[i][j+1] != '#' && visited[i][j+1] != '*') {
 					map1[i][j] = '.';
 					visited[i][j] = '*';
 					map1[i][j+1] = 'S';
-				} else if (map1[i][j] == 'S' && i+1 < 6 && map1[i+1][j] != '#' && visited[i+1][j] != '*') {
+				} else if (map1[i][j] == 'S' && i+1 < sizeOfField && map1[i+1][j] != '#' && visited[i+1][j] != '*') {
 					map1[i][j] = '.';
 					visited[i+1][j] = '*';
 					map1[i+1][j] = 'S';
@@ -66,7 +71,7 @@ public class AutoGeneration {
 		boolean flag = false;
 		while (!flag) {
 			generation();
-			flag = proverka();
+			flag = check();
 		}
 		return map;
 	}
