@@ -45,9 +45,10 @@ public class Menu1 {
 				game.clearConsole();
 				System.out.println();
 				System.out.println("Press 'w' to go upstairs");
-				System.out.println("Press 'a' to go to the right");
-				System.out.println("Press 'd' to go to the left");
+				System.out.println("Press 'a' to go to the left");
+				System.out.println("Press 'd' to go to the right");
 				System.out.println("Press 's' to go down");
+				System.out.println("Go from 'S' to 'F' to WIN!");
 				System.out.println();
 				currentMenuDisplay();
 				break;

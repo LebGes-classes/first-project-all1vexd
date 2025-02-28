@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class Game1 {
+	private int startCoordinateX;
+	private int startCoordinateY;
 	private int coordinateX;
 	private int coordinateY;
 	private int numberOfLevel;
@@ -62,7 +64,11 @@ public class Game1 {
 		if (currentCoordinateX >= generation.getSizeOfField() || currentCoordinateX < 0 ||
 					currentCoordinateY >= generation.getSizeOfField() || currentCoordinateY < 0) {
 			clearConsole();
-			System.out.println("Oops, there's a wall here! You can't go there!");
+			System.out.println("Oops, there's a wall here! You can't go there! Try again!");
+			map[coordinateY][coordinateX] = '*';
+			coordinateX = startCoordinateX;
+			coordinateY = startCoordinateY;
+			map[coordinateY][coordinateX] = 'S';
 			return;
 		}
 		
@@ -78,7 +84,12 @@ public class Game1 {
 			updateDisplay('V');
 		} else {
 			clearConsole();
-			System.out.println("Oops, there's a wall here! You can't go there!");
+			System.out.println("Oops, there's a wall here! You can't go there! Try again!");
+			map[currentCoordinateY][currentCoordinateX] = '#';
+			map[coordinateY][coordinateX] = '*';
+			coordinateX = startCoordinateX;
+			coordinateY = startCoordinateY;
+			map[coordinateY][coordinateX] = 'S';
 			return;
 		}
 	}
